@@ -17,6 +17,9 @@ importers:
       constructs:
         specifier: 10.1.156
         version: 10.1.156
+      eslint-config-custom:
+        specifier: workspace:*
+        version: link:packages/eslint-config-common
       lerna:
         specifier: ^7.1.1
         version: 7.1.1
