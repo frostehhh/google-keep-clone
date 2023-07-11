@@ -1,5 +1,6 @@
 {
   "extends": "@tsconfig/node16/tsconfig.json",
+  "includes": [".eslintrc.cjs", "**/*.ts"],
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "node"

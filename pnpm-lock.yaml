@@ -44,6 +44,9 @@ importers:
       '@types/node':
         specifier: ^20.4.1
         version: 20.4.1
+      eslint-config-custom:
+        specifier: workspace:^
+        version: link:../eslint-config-custom
       sst:
         specifier: ^2.19.1
         version: 2.19.1(@types/react@18.2.14)
