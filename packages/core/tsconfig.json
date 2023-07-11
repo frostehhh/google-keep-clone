@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/node16/tsconfig.json",
-  "includes": [".eslintrc.cjs", "**/*.ts"],
+  "include": [".eslintrc.cjs", "src/**/*.ts", "vite.config.js"],
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "node"
