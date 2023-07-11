@@ -1,8 +1,10 @@
 {
   "name": "@google-keep-clone/core",
   "version": "0.0.0",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
+    "build": "tsc src/index.ts --outDir dist",
     "test": "sst bind vitest",
     "typecheck": "tsc -noEmit"
   },
