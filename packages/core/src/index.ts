@@ -1,0 +1,1 @@
+export { default as baseApiGatewayHandler } from './baseApiGatewayHandler';
