@@ -4,6 +4,11 @@
   "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "module": "esnext",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@core/lib": ["./src/lib"],
+      "ts-toolbelt": ["node_modules/ts-toolbelt"]
+    }
   }
 }

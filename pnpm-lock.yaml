@@ -66,6 +66,9 @@ importers:
       sst:
         specifier: ^2.19.1
         version: 2.19.1(@types/react@18.2.14)
+      ts-toolbelt:
+        specifier: ^9.6.0
+        version: 9.6.0
       vitest:
         specifier: ^0.33.0
         version: 0.33.0
@@ -11495,7 +11498,6 @@ packages:
 
   /ts-toolbelt@9.6.0:
     resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
-    dev: false
 
   /tsconfig-paths@3.14.2:
     resolution: {integrity: sha512-o/9iXgCYc5L/JxCHPe3Hvh8Q/2xm5Z+p18PESBU6Ff33695QnCHBEjcytY2q19ua7Mbl/DavtBOLq+oG0RCL+g==}
