@@ -16,5 +16,5 @@ module.exports = {
   parserOptions: {
     project: path.join(__dirname, 'tsconfig.json'),
   },
-  extends: ['next/core-web-vitals', 'custom'],
+  extends: ['custom'],
 };
