@@ -4,7 +4,7 @@ import { DynamoDBDocumentClient as SDKDynamoDBDocumentClient } from '@aws-sdk/li
 
 const marshallOptions = {
   // Specify your client options as usual
-  convertEmptyValues: false 
+  convertEmptyValues: false,
 };
 
 const translateConfig = { marshallOptions };

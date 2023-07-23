@@ -57,9 +57,6 @@ importers:
       dynamodb-toolbox:
         specifier: ^0.8.5
         version: 0.8.5(@aws-sdk/client-dynamodb@3.369.0)(@aws-sdk/lib-dynamodb@3.369.0)
-      ts-toolbelt:
-        specifier: ^9.6.0
-        version: 9.6.0
     devDependencies:
       '@types/aws-lambda':
         specifier: ^8.10.119

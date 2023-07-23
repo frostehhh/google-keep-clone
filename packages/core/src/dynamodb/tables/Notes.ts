@@ -10,7 +10,7 @@ const NotesTableInfo = new TableInfo({
     userId: { sortKey: true, type: 'string' },
     title: { type: 'string' },
     content: { type: 'string' },
-  }
+  },
 } as const);
 
 
@@ -24,14 +24,14 @@ const NotesTable = new Table({
 const NoteEntity = new Entity({
   name: NotesTableInfo.tableName,
   attributes: NotesTableInfo.attributes,
-  table: NotesTable
+  table: NotesTable,
 } as const);
 
 
 export const NotesInfo = {
   Instance: NotesTable,
   Entity: {
-    Note: NoteEntity
+    Note: NoteEntity,
   },
   ...NotesTableInfo,
 } as const;

@@ -1,5 +1,5 @@
-import type { APIGatewayEvent,APIGatewayProxyCallback, Context, Handler } from 'aws-lambda';
- 
+import type { APIGatewayEvent, APIGatewayProxyCallback, Context, Handler } from 'aws-lambda';
+
 const baseApiGatewayHandler = (lambda: Handler) => {
   const baseHandler: Handler = async (event: APIGatewayEvent, context: Context, callback: APIGatewayProxyCallback) => {
     let body: unknown, statusCode;
@@ -9,9 +9,9 @@ const baseApiGatewayHandler = (lambda: Handler) => {
       body = await lambda(event, context, callback);
       statusCode = 200;
     } catch (e: any) {
-      body = { 
+      body = {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-        error: e.message
+        error: e.message,
       };
       statusCode = 500;
     }

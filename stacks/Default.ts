@@ -1,4 +1,4 @@
-import { NextjsSite,type StackContext } from 'sst/constructs';
+import { NextjsSite, type StackContext } from 'sst/constructs';
 
 export function Default({ stack }: StackContext) {
   const site = new NextjsSite(stack, 'site', {

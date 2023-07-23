@@ -8,8 +8,8 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: '@google-keep-clone/core',
       formats: ['es'],
-      fileName: 'index'
-    }
+      fileName: 'index',
+    },
   },
-  plugins: [dts()]
+  plugins: [dts()],
 });
