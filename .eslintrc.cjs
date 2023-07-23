@@ -2,6 +2,7 @@
 const path = require('path');
 
 module.exports = {
+  root: true,
   overrides: [
     {
       extends: [
@@ -17,4 +18,5 @@ module.exports = {
     project: path.join(__dirname, 'tsconfig.json'),
   },
   extends: ['custom'],
+  ignorePatterns: ['*.json', '*.yaml', '/packages'],
 };
