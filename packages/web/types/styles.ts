@@ -1,0 +1,1 @@
+export type CSSClasses<Keys extends string> = Partial<Record<Keys, string>>;
