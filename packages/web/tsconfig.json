@@ -22,9 +22,6 @@
       "@/*": [
         "./*"
       ],
-      "@google-keep-clone/core/*": [
-        "../core/src/*"
-      ]
     },
     "plugins": [
       {
