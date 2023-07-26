@@ -25,6 +25,8 @@ const NoteEntity = new Entity({
   name: NotesTableInfo.tableName,
   attributes: NotesTableInfo.attributes,
   table: NotesTable,
+  createdAlias: 'createdAt',
+  modifiedAlias: 'modifiedAt',
 } as const);
 
 
