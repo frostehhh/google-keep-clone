@@ -1,7 +1,7 @@
 {
   "extends": "@tsconfig/node16/tsconfig.json",
   "include": [".eslintrc.cjs", "**/*.ts", "**/*.tsx"],
-  "exclude": ["packages", "services"],
+  "exclude": ["packages", "services", "*.md", "LICENSE"],
   "compilerOptions": {
     "moduleResolution": "node"
   }

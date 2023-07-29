@@ -2,7 +2,6 @@ import { Inter } from 'next/font/google';
 
 import { NotesSection } from './_components';
 
-
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {

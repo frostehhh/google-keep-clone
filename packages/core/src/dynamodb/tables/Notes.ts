@@ -13,7 +13,6 @@ const NotesTableInfo = new TableInfo({
   },
 } as const);
 
-
 const NotesTable = new Table({
   name: NotesTableInfo.tableName,
   partitionKey: 'noteId',
@@ -28,7 +27,6 @@ const NoteEntity = new Entity({
   createdAlias: 'createdAt',
   modifiedAlias: 'modifiedAt',
 } as const);
-
 
 export const NotesInfo = {
   Instance: NotesTable,

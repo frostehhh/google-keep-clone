@@ -18,5 +18,5 @@ module.exports = {
     project: path.join(__dirname, 'tsconfig.json'),
   },
   extends: ['custom'],
-  ignorePatterns: ['*.json', '*.yaml', '/packages'],
+  ignorePatterns: ['*.json', '*.yaml', '/packages', '*.md', 'LICENSE'],
 };

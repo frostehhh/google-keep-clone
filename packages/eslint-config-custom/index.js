@@ -21,6 +21,7 @@ module.exports = {
     'no-trailing-spaces': 'error',
     'no-whitespace-before-property': 'error',
     'object-curly-spacing': ['error', 'always'],
+    'no-multiple-empty-lines': ['error', { max: 1 }],
     'semi-spacing': 'error',
     'space-before-blocks': 'error',
     'space-infix-ops': 'error',
