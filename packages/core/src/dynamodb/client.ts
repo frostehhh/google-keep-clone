@@ -9,5 +9,6 @@ const marshallOptions = {
 
 const translateConfig = { marshallOptions };
 
-export const DynamoDBDocumentClient = SDKDynamoDBDocumentClient.from(new DynamoDBClient({}), translateConfig);
+// TODO: Set region via environment variable
+export const DynamoDBDocumentClient = SDKDynamoDBDocumentClient.from(new DynamoDBClient({ region: 'us-east-1', credentials: { accessKeyId: 'AKIA3ZCNRTOBJC45RULQ', secretAccessKey: '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' } }), translateConfig);
 
