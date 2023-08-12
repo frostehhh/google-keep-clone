@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "vite build",
+    "build:watch": "pnpm nx watch --projects=@google-keep-clone/core -- pnpm run build",
     "test": "sst bind vitest",
     "typecheck": "tsc -noEmit",
     "lint": "eslint ./**",
@@ -26,6 +27,7 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.369.0",
     "@aws-sdk/lib-dynamodb": "^3.369.0",
+    "@rollup/plugin-node-resolve": "^15.1.0",
     "dynamodb-toolbox": "^0.8.5"
   }
 }
