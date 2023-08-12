@@ -1,11 +1,11 @@
-import { type AttributeDefinitions, type TableInfoConstructor } from './types';
+import { type TableInfoConstructor } from './types';
 
-export class TableInfo<const TableName, ReadOnlyAttributeDefinitions extends Readonly<AttributeDefinitions> = Readonly<AttributeDefinitions>> {
+export class TableInfo<const TableName> {
   public tableName: TableName;
-  public attributes: ReadOnlyAttributeDefinitions;
+  public apiName?: string;
 
-  constructor({ tableName, attributes }: TableInfoConstructor<TableName, ReadOnlyAttributeDefinitions>) {
+  constructor({ tableName, apiName }: TableInfoConstructor<TableName>) {
     this.tableName = tableName;
-    this.attributes = attributes;
+    this.apiName = apiName;
   }
 }
