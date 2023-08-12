@@ -1,5 +1,5 @@
 {
-  "name": "@google-keep-clone/functions",
+  "name": "functions",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -9,6 +9,7 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.119",
     "@types/node": "^20.4.1",
+    "dynamodb-toolbox": "^0.8.5",
     "eslint-config-custom": "workspace:^",
     "sst": "^2.19.1",
     "vitest": "^0.33.0"
