@@ -1,6 +1,6 @@
 export type AttributeDefinitions = Record<string | number | symbol, unknown>;
 
-export type TableInfoConstructor<TableName, ReadOnlyAttributeDefinitions extends Readonly<AttributeDefinitions> = Readonly<AttributeDefinitions>> = {
+export type TableInfoConstructor<TableName> = {
   tableName: TableName;
-  attributes: ReadOnlyAttributeDefinitions;
+  apiName?: string;
 }

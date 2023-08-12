@@ -1,2 +1,2 @@
 export { default as baseApiGatewayHandler } from './baseApiGatewayHandler';
-export { DynamoDBDocumentClient, DynamoDBInfo } from './dynamodb';
+export * from './dynamodb';
