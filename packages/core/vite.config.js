@@ -1,6 +1,7 @@
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import dts from 'vite-plugin-dts';
+import dts from 'vite-plugin-dts'; ;
 
 export default defineConfig({
   build: {
@@ -10,6 +11,14 @@ export default defineConfig({
       formats: ['es'],
       fileName: 'index',
     },
+    rollupOptions: {
+      output: {
+        globals: { crypto: 'crypto' },
+      },
+      external: ['crypto'],
+      plugins: [nodeResolve({ preferBuiltins: true })],
+    },
   },
   plugins: [dts()],
 });
+
