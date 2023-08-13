@@ -1,3 +1,3 @@
 export * from './classes';
-export { DynamoDBDocumentClient } from './client';
+export { initDynamoDbClient } from './client';
 export * from './tables';

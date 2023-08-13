@@ -1,5 +1,6 @@
 import '../../polyfills/crypto';
 
+import { type DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import crypto from 'crypto';
 import { Entity, type Table } from 'dynamodb-toolbox';
 import type { A } from 'ts-toolbelt';
@@ -14,17 +15,19 @@ const NotesTableInfo = new TableInfo({
 
 type GenerateTableProps = {
   tableName: InitializeTableProps['tableName'];
+  dynamoDbClient: DynamoDBDocumentClient;
 }
 type GenerateEntityProps<TableInstance extends Table<string, A.Key, A.Key | null> = Table<string, A.Key, A.Key | null>> = {
   table: TableInstance;
 }
 
 export const instanceGenerators = {
-  generateTable: ({ tableName }: GenerateTableProps) => {
+  generateTable: ({ tableName, dynamoDbClient }: GenerateTableProps) => {
     return initializeTable({
       tableName,
       partitionKey: 'noteId',
       sortKey: 'userId',
+      dynamoDbClient,
     });
   },
   entityGenerators: {

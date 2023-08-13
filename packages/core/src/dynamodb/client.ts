@@ -1,5 +1,5 @@
 
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient, type DynamoDBClientConfig } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient as SDKDynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 
 const marshallOptions = {
@@ -9,5 +9,6 @@ const marshallOptions = {
 
 const translateConfig = { marshallOptions };
 
-export const DynamoDBDocumentClient = SDKDynamoDBDocumentClient.from(new DynamoDBClient({}), translateConfig);
-
+export const initDynamoDbClient = (props: DynamoDBClientConfig) => SDKDynamoDBDocumentClient.from(new DynamoDBClient({
+  ...props,
+}), translateConfig);

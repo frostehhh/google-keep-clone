@@ -28,6 +28,7 @@
     "@aws-sdk/client-dynamodb": "^3.369.0",
     "@aws-sdk/lib-dynamodb": "^3.369.0",
     "@rollup/plugin-node-resolve": "^15.1.0",
-    "dynamodb-toolbox": "^0.8.5"
+    "dynamodb-toolbox": "^0.8.5",
+    "zod": "^3.21.4"
   }
 }
