@@ -5,7 +5,6 @@ import { NoteEntity } from './common';
 import { type NoteEntityType } from './types';
 
 export const createNote: Handler = async (event: APIGatewayProxyEventV2) => {
-  console.log('createNote', event);
   const response: unknown = event?.body ? JSON.parse(event.body) : {};
   const newNote = (response as NoteEntityType);
 
