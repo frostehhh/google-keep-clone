@@ -18,6 +18,7 @@ export function ApiStack({ stack }: StackContext) {
     },
     routes: {
       'POST /api/notes': 'packages/functions/src/notes/index.createNote',
+      'GET /api/notes/{noteId}': 'packages/functions/src/notes/index.getNote',
     },
   });
 
