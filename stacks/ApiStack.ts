@@ -17,6 +17,7 @@ export function ApiStack({ stack }: StackContext) {
         ],
         environment,
       },
+      authorizer: 'iam',
     },
     routes: {
       'POST /api/notes': `${NOTES_DIR}index.createNote`,

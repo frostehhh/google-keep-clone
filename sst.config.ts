@@ -2,6 +2,7 @@ import { EnvSchema } from '@google-keep-clone/core';
 import { type SSTConfig } from 'sst';
 
 import { ApiStack } from './stacks/ApiStack';
+import { AuthStack } from './stacks/AuthStack';
 import { FrontendStack } from './stacks/FrontendStack';
 import { StorageStack } from './stacks/StorageStack';
 
@@ -18,6 +19,7 @@ export default {
     app
       .stack(StorageStack)
       .stack(ApiStack)
+      .stack(AuthStack)
       .stack(FrontendStack);
   },
 } satisfies SSTConfig;
