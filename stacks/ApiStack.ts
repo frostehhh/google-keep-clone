@@ -3,6 +3,8 @@ import { Api, type StackContext, use } from 'sst/constructs';
 
 import { StorageStack } from './StorageStack';
 
+const NOTES_DIR = 'packages/functions/src/notes/';
+
 export function ApiStack({ stack }: StackContext) {
   const environment = EnvSchema.parse(process.env);
   const { notesTable } = use(StorageStack);
@@ -17,9 +19,10 @@ export function ApiStack({ stack }: StackContext) {
       },
     },
     routes: {
-      'POST /api/notes': 'packages/functions/src/notes/index.createNote',
-      'GET /api/notes/{noteId}': 'packages/functions/src/notes/index.getNote',
-      'GET /api/notes': 'packages/functions/src/notes/index.getNotes',
+      'POST /api/notes': `${NOTES_DIR}index.createNote`,
+      'GET /api/notes/{noteId}': `${NOTES_DIR}index.getNote`,
+      'GET /api/notes': `${NOTES_DIR}index.getNotes`,
+      'PUT /api/notes/{noteId}': `${NOTES_DIR}index.updateNote`,
     },
   });
 
