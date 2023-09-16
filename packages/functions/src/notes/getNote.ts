@@ -1,25 +1,27 @@
-import { baseApiGatewayHandler, GetNoteSchema } from '@google-keep-clone/core';
+import { GetNoteSchema } from '@google-keep-clone/core';
 import { type APIGatewayProxyEventV2 } from 'aws-lambda';
 import { StatusCodes } from 'http-status-codes';
+import { handleResponseError, handleSuccessfulResponse } from 'src/common';
 
 import { NoteEntity } from './common';
 
-async function main(event: APIGatewayProxyEventV2) {
-  const pathParams = GetNoteSchema.safeParse(event?.pathParameters);
+export async function getNote(event: APIGatewayProxyEventV2) {
+  try {
+    const pathParams = GetNoteSchema.safeParse(event?.pathParameters);
 
-  if (!pathParams.success) {
-    return {
-      status: StatusCodes.BAD_REQUEST,
-      error: JSON.stringify(pathParams.error),
-    };
+    if (!pathParams.success) {
+      return {
+        status: StatusCodes.BAD_REQUEST,
+        error: JSON.stringify(pathParams.error),
+      };
+    }
+    const result = await NoteEntity.get({ userId: '123', ...pathParams.data });
+    if (!result.Item) {
+      throw new Error('Item not found.');
+    }
+
+    return handleSuccessfulResponse({ body: result.Item });
+  } catch (e: unknown) {
+    return handleResponseError({ error: e });
   }
-
-  const result = await NoteEntity.get({ userId: '123', ...pathParams });
-  if (!result.Item) {
-    throw new Error('Item not found.');
-  }
-
-  return result.Item;
 };
-
-export default baseApiGatewayHandler(main);
