@@ -9,3 +9,5 @@ export const UpdateNoteBodySchema = z.object({
   title: z.string().nullable(),
   content: z.string().nullable(),
 });
+
+export const DeleteNoteSchema = GetNoteSchema;

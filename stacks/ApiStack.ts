@@ -23,6 +23,7 @@ export function ApiStack({ stack }: StackContext) {
       'GET /api/notes/{noteId}': `${NOTES_DIR}index.getNote`,
       'GET /api/notes': `${NOTES_DIR}index.getNotes`,
       'PUT /api/notes/{noteId}': `${NOTES_DIR}index.updateNote`,
+      'DELETE /api/notes/{noteId}': `${NOTES_DIR}index.deleteNote`,
     },
   });
 
