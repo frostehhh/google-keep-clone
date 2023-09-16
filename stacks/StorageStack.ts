@@ -7,7 +7,7 @@ export function StorageStack({ stack }: StackContext) {
       noteId: 'string',
       userId: 'string',
     },
-    primaryIndex: { partitionKey: 'noteId', sortKey: 'userId' },
+    primaryIndex: { partitionKey: 'userId', sortKey: 'noteId' },
   });
 
   return {

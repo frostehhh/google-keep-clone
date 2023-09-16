@@ -25,8 +25,8 @@ export const instanceGenerators = {
   generateTable: ({ tableName, dynamoDbClient }: GenerateTableProps) => {
     return initializeTable({
       tableName,
-      partitionKey: 'noteId',
-      sortKey: 'userId',
+      partitionKey: 'userId',
+      sortKey: 'noteId',
       dynamoDbClient,
     });
   },
@@ -36,8 +36,8 @@ export const instanceGenerators = {
         name: 'Note',
         table,
         attributes: {
-          noteId: { partitionKey: true, type: 'string', default: () => crypto.randomUUID() },
-          userId: { sortKey: true, type: 'string' },
+          noteId: { sortKey: true, type: 'string', default: () => crypto.randomUUID() },
+          userId: { partitionKey: true, type: 'string' },
           title: { type: 'string' },
           content: { type: 'string' },
         },
