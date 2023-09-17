@@ -9,6 +9,15 @@ const nextConfig = {
       );
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.gstatic.com',
+        port: '',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
