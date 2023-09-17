@@ -9,5 +9,6 @@ export const UpdateNoteBodySchema = z.object({
   title: z.string().nullable(),
   content: z.string().nullable(),
 });
+export type UpdateNoteBodyType = z.infer<typeof UpdateNoteBodySchema>;
 
 export const DeleteNoteSchema = GetNoteSchema;
