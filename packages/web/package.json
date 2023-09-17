@@ -11,6 +11,7 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^5.3.0",
     "@types/node": "^20.4.1",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
