@@ -1,5 +1,5 @@
 // import { type NoteEntityType } from '@google-keep-clone/core';
-import { type UpdateNoteBodyType } from '@google-keep-clone/core';
+import { type NoteType, type UpdateNoteBodyType } from '@google-keep-clone/core';
 import { Amplify, API } from 'aws-amplify';
 
 import { config } from './awsConfig';
@@ -11,3 +11,5 @@ export const createNote = async ({ note }: { note: UpdateNoteBodyType }) => {
     body: note,
   });
 };
+
+export const getNotes = async () => (await API.get('notesApi', '/api/notes', {})) as NoteType[];
