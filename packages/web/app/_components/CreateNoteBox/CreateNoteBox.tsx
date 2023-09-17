@@ -1,6 +1,7 @@
 import { useForm } from '@tanstack/react-form';
 
-import { TextArea, TextField } from '@/components';
+import TextArea from '@/components/ui/TextArea';
+import TextField from '@/components/ui/TextField';
 
 import { useFocusWithinCreateNote } from './CreateNotebox.utils';
 

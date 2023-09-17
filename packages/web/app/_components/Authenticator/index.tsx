@@ -5,16 +5,17 @@ import { Amplify } from 'aws-amplify';
 import { config } from '@/api/awsConfig';
 import { Authenticator as AuthUI } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
+import { Button } from '@/components/ui/Button';
 
 Amplify.configure(config);
 
 export function Authenticator() {
   return (
-    <AuthUI>
+    <AuthUI variation='modal'>
       {({ signOut, user }) => (
-        <div>
-          <h1>Logged in as {user?.attributes?.email}</h1>
-          <button onClick={signOut}>Sign out</button>
+        <div className="h-full flex items-center gap-2">
+          <Button variant="outline" onPress={signOut}>Sign out</Button>
+          <span>Logged in as {user?.attributes?.email}</span>
         </div>
       )}
     </AuthUI>
