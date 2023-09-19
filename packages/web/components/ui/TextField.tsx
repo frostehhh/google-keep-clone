@@ -1,12 +1,13 @@
 'use client';
 
+import { useObjectRef } from '@react-aria/utils';
 import React from 'react';
 import type { AriaTextFieldProps } from 'react-aria';
 import { useTextField } from 'react-aria';
 
-export default function TextField(props: AriaTextFieldProps) {
+const TextField: React.FunctionComponent<AriaTextFieldProps> = React.forwardRef<HTMLInputElement, AriaTextFieldProps>((props, forwardedRef) => {
   const { label } = props;
-  const ref = React.useRef(null);
+  const ref = useObjectRef(forwardedRef);
   const { labelProps, inputProps, descriptionProps, errorMessageProps } =
     useTextField(props, ref);
 
@@ -26,4 +27,7 @@ export default function TextField(props: AriaTextFieldProps) {
       )}
     </div>
   );
-}
+});
+
+TextField.displayName = 'TextField';
+export default TextField;

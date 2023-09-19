@@ -1,5 +1,6 @@
 'use client';
 
+import { useObjectRef } from '@react-aria/utils';
 import clsx from 'clsx';
 import React from 'react';
 import { type AriaTextFieldProps, useTextField } from 'react-aria';
@@ -10,10 +11,11 @@ interface TextAreaProps extends AriaTextFieldProps {
   classes?: CSSClasses<'root' | 'textarea'>
 }
 
-const TextArea: React.FunctionComponent<TextAreaProps> = ({ className, classes, ...textFieldProps }) => {
+const TextArea: React.FunctionComponent<TextAreaProps> = React.forwardRef<HTMLTextAreaElement, TextAreaProps>((props, forwardedRef) => {
+  const { className, classes, ...textFieldProps } = props;
   const { label } = textFieldProps;
-  const ref = React.useRef(null);
-  const { labelProps, inputProps } = useTextField({ ...textFieldProps, inputElementType: 'textarea' }, ref);
+  const ref = useObjectRef(forwardedRef);
+  const { labelProps, inputProps } = useTextField({ ...props, inputElementType: 'textarea' }, ref);
 
   return (
     <div className={clsx('border-solid border-2', className, classes?.root)}>
@@ -21,6 +23,7 @@ const TextArea: React.FunctionComponent<TextAreaProps> = ({ className, classes, 
       <textarea {...inputProps} className={clsx('resize-none', classes?.textarea)} ref={ref} />
     </div>
   );
-};
+});
 
+TextArea.displayName = 'TextArea';
 export default TextArea;
