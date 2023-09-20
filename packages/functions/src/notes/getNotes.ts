@@ -8,7 +8,7 @@ export async function getNotes(event: APIGatewayProxyEventV2WithIAMAuthorizer) {
   try {
     // @ts-ignore
     const user = event.requestContext.authorizer.iam.cognitoIdentity.identityId as string;
-    const result = await NoteEntity.query('123');
+    const result = await NoteEntity.query(user);
 
     if (!result.Items) {
       throw new Error('Items not found.');
