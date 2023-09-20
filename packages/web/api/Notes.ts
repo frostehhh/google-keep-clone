@@ -19,3 +19,7 @@ export const updateNote = (note: NoteType) => {
     body: note,
   });
 };
+
+export const deleteNote = (noteId: NoteType['noteId']) => {
+  return API.del('notesApi', `/api/notes/${noteId}`, {});
+};
