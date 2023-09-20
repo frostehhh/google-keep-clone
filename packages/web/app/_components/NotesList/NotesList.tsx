@@ -18,7 +18,7 @@ export default function NotesList() {
 
   return (
     <div className="flex gap-4 flex-wrap">
-      {data.map((note) => <Note key={note.noteId} {...note} />)}
+      {data.map((note) => <Note key={note.noteId} data={note} />)}
     </div>
   );
 }
