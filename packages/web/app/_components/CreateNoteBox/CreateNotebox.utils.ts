@@ -1,11 +1,11 @@
-import { type UpdateNoteBodyType } from '@google-keep-clone/core';
+import { type CreateNoteBodyType } from '@google-keep-clone/core';
 import { useState } from 'react';
 import { type FocusWithinProps, useFocusWithin } from 'react-aria';
 
 import { createNote } from '@/api/Notes';
 
 interface UseFocusWithinCreateNoteProps {
-  values: UpdateNoteBodyType;
+  values: CreateNoteBodyType;
   isFormTouched: boolean;
   resetForm: () => void;
 }
