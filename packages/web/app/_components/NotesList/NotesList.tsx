@@ -18,8 +18,6 @@ export default function NotesList() {
     queryFn: getNotes,
   });
   const updateMutation = useMutation({
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     mutationFn: updateNote,
     onSuccess: (data: NoteType) => {
       queryClient.setQueryData(['notes', { noteId: data.noteId }], data);
@@ -31,7 +29,7 @@ export default function NotesList() {
   const queryClient = useQueryClient();
   const [isNoteDialogOpen, setIsNoteDialogOpen] = useState(false);
 
-  const { watch, formState, reset, control, handleSubmit, getValues } = useForm<NoteType>({
+  const { formState, reset, control, getValues } = useForm<NoteType>({
     defaultValues: {
       title: '',
       content: '',
@@ -55,7 +53,6 @@ export default function NotesList() {
   };
 
   const handleDialogOpenChange = (open: boolean) => {
-    console.log('handledialogOpenchange', { values: getValues(), isDirty: formState.isDirty });
     if (!open && formState.isDirty) {
       updateMutation.mutate(getValues());
       void queryClient.invalidateQueries({ queryKey: ['notes'] });
