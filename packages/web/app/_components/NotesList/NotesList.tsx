@@ -12,8 +12,6 @@ export default function NotesList() {
     queryFn: getNotes,
   });
 
-  console.log('NotesList', { data, isLoading });
-
   if (isLoading || !data) {
     return;
   }

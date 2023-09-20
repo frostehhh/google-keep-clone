@@ -8,7 +8,6 @@ export async function getNotes(event: APIGatewayProxyEventV2WithIAMAuthorizer) {
   try {
     // @ts-ignore
     const user = event.requestContext.authorizer.iam.cognitoIdentity.identityId as string;
-    console.log('user', user);
     const result = await NoteEntity.query('123');
 
     if (!result.Items) {
