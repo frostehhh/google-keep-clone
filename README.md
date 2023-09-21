@@ -1,6 +1,6 @@
 # Google Keep Clone
 
-An work-in-progress open source clone of the Google Keep app using TypeScript, React, Next.js, Serverless Stack(SST) and microservice architecture.
+A work-in-progress open source clone of the Google Keep app using TypeScript, React, Next.js, Serverless Stack(SST) and microservice architecture.
 
 ## About this project
 
@@ -24,10 +24,20 @@ The packages involved in this monorepo are as follows
 pnpm install
 ```
 
-2. Configure AWS Credentials locally. You can refer to this guide - [SST - IAM Credentials](https://docs.sst.dev/advanced/iam-credentials#loading-credentials)
+2. Configure AWS Credentials locally. You can refer to this guide - [SST - IAM Credentials](https://docs.sst.dev/advanced/iam-credentials#loading-credentials). The AWS account to be used must be verified so that Cloudfront resources may be deployed. See this [reference](https://repost.aws/questions/QULXHEAzC7Sai6_LTLNYn83Q/your-account-must-be-verified-before-you-can-add-new-cloudfront-resources)
 
 3. Start the development server
 
 ```
 nx run-many -t dev
 ```
+
+## Roadmap
+
+Incoming features or updates include but are not limited to the following:
+
+- Testing
+- Observability
+- Logging
+- UI and UX improvements
+- CI/CD pipelines
