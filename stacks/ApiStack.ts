@@ -1,12 +1,13 @@
-import { EnvSchema } from '@google-keep-clone/core';
-import { Api, type StackContext, use } from 'sst/constructs';
+import { Api, Config, type StackContext, use } from 'sst/constructs';
 
 import { StorageStack } from './StorageStack';
 
 const NOTES_DIR = 'packages/functions/src/notes/';
 
 export function ApiStack({ stack }: StackContext) {
-  const environment = EnvSchema.parse(process.env);
+  const AWS_CUSTOM_ACCESS_KEY_ID = new Config.Secret(stack, 'AWS_CUSTOM_ACCESS_KEY_ID');
+  const AWS_CUSTOM_SECRET_ACCESS_KEY = new Config.Secret(stack, 'AWS_CUSTOM_SECRET_ACCESS_KEY');
+
   const { notesTable } = use(StorageStack);
 
   const notesApi = new Api(stack, 'notesApi', {
@@ -14,8 +15,9 @@ export function ApiStack({ stack }: StackContext) {
       function: {
         bind: [
           notesTable,
+          AWS_CUSTOM_SECRET_ACCESS_KEY,
+          AWS_CUSTOM_ACCESS_KEY_ID,
         ],
-        environment,
       },
       authorizer: 'iam',
     },

@@ -1,10 +1,10 @@
-import { EnvSchema, initDynamoDbClient } from '@google-keep-clone/core';
+import { initDynamoDbClient } from '@google-keep-clone/core';
+import { Config } from 'sst/node/config';
 
-const env = EnvSchema.parse(process.env);
 export const dynamoDbClient = initDynamoDbClient({
   region: process.env.AWS_REGION,
   credentials: {
-    accessKeyId: env.AWS_CUSTOM_ACCESS_KEY_ID,
-    secretAccessKey: env.AWS_CUSTOM_SECRET_ACCESS_KEY,
+    accessKeyId: Config.AWS_CUSTOM_ACCESS_KEY_ID,
+    secretAccessKey: Config.AWS_CUSTOM_SECRET_ACCESS_KEY,
   },
 });
