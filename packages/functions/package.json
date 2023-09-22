@@ -12,7 +12,7 @@
     "dynamodb-toolbox": "^0.8.5",
     "eslint-config-custom": "workspace:^",
     "http-status-codes": "^2.2.0",
-    "sst": "^2.19.1",
+    "sst": "^2.26.2",
     "vitest": "^0.33.0"
   }
 }

@@ -34,8 +34,8 @@ importers:
         specifier: latest
         version: 16.4.0
       sst:
-        specifier: ^2.22.6
-        version: 2.25.6
+        specifier: ^2.26.2
+        version: 2.26.2(@types/react@18.2.14)
       typescript:
         specifier: ^5.1.6
         version: 5.2.2
@@ -74,8 +74,8 @@ importers:
         specifier: workspace:^
         version: link:../eslint-config-custom
       sst:
-        specifier: ^2.19.1
-        version: 2.25.6
+        specifier: ^2.26.2
+        version: 2.26.2(@types/react@18.2.14)
       ts-toolbelt:
         specifier: ^9.6.0
         version: 9.6.0
@@ -119,8 +119,8 @@ importers:
         specifier: ^2.2.0
         version: 2.3.0
       sst:
-        specifier: ^2.19.1
-        version: 2.25.6
+        specifier: ^2.26.2
+        version: 2.26.2(@types/react@18.2.14)
       vitest:
         specifier: ^0.33.0
         version: 0.33.0
@@ -231,8 +231,8 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0(prettier@3.0.3)
       sst:
-        specifier: ^2.19.1
-        version: 2.25.6(@types/react@18.2.14)
+        specifier: ^2.26.2
+        version: 2.26.2(@types/react@18.2.14)
 
 packages:
 
@@ -564,17 +564,6 @@ packages:
     resolution: {integrity: sha512-DDt4SLdLOwWCjGtltH4VCST7hpOI5DzieuhGZsBpZ+AgJdSI2GCjklCXm0GCTwJG/SolkL5dtQXyUKgg9luBDg==}
     dev: true
 
-  /@aws-cdk/aws-apigatewayv2-alpha@2.95.1-alpha.0(aws-cdk-lib@2.84.0)(constructs@10.1.156):
-    resolution: {integrity: sha512-01CjocOWbt5XF2aaLWXSOrWlCevmebwLUtivlRhCMpLXfpIQVwMRWbPdzZvpjcsUm5e3ptHUe9aNDZfpWEWahg==}
-    engines: {node: '>= 14.15.0'}
-    peerDependencies:
-      aws-cdk-lib: 2.95.1
-      constructs: ^10.0.0
-    dependencies:
-      aws-cdk-lib: 2.84.0(constructs@10.1.156)
-      constructs: 10.1.156
-    dev: true
-
   /@aws-cdk/aws-apigatewayv2-alpha@2.95.1-alpha.0(aws-cdk-lib@2.95.1)(constructs@10.2.69):
     resolution: {integrity: sha512-01CjocOWbt5XF2aaLWXSOrWlCevmebwLUtivlRhCMpLXfpIQVwMRWbPdzZvpjcsUm5e3ptHUe9aNDZfpWEWahg==}
     engines: {node: '>= 14.15.0'}
@@ -658,7 +647,7 @@ packages:
     resolution: {integrity: sha512-8K0b1672qbv05chSoKpwGZ3fhvVp28Fg3AVHVkEHFl2lTLChO7wD/hTyyo8ING7uc31uZRt7bNra/hA74Td7Tw==}
     dependencies:
       '@aws-crypto/util': 1.2.2
-      '@aws-sdk/types': 3.6.1
+      '@aws-sdk/types': 3.413.0
       tslib: 1.14.1
     dev: false
 
@@ -666,7 +655,7 @@ packages:
     resolution: {integrity: sha512-TvE1r2CUueyXOuHdEigYjIZVesInd9KN+K/TFFNfkkxRThiNxO6i4ZqqAVMoEjAamZZ1AA8WXJkjCz7YShHPQA==}
     dependencies:
       '@aws-crypto/util': 2.0.2
-      '@aws-sdk/types': 3.186.0
+      '@aws-sdk/types': 3.413.0
       tslib: 1.14.1
     dev: false
 
@@ -721,7 +710,7 @@ packages:
       '@aws-crypto/sha256-js': 1.2.2
       '@aws-crypto/supports-web-crypto': 1.0.0
       '@aws-crypto/util': 1.2.2
-      '@aws-sdk/types': 3.6.1
+      '@aws-sdk/types': 3.413.0
       '@aws-sdk/util-locate-window': 3.310.0
       tslib: 1.14.1
     dev: false
@@ -733,7 +722,7 @@ packages:
       '@aws-crypto/sha256-js': 2.0.0
       '@aws-crypto/supports-web-crypto': 2.0.2
       '@aws-crypto/util': 2.0.2
-      '@aws-sdk/types': 3.186.0
+      '@aws-sdk/types': 3.413.0
       '@aws-sdk/util-locate-window': 3.310.0
       '@aws-sdk/util-utf8-browser': 3.186.0
       tslib: 1.14.1
@@ -755,7 +744,7 @@ packages:
     resolution: {integrity: sha512-Nr1QJIbW/afYYGzYvrF70LtaHrIRtd4TNAglX8BvlfxJLZ45SAmueIKYl5tWoNBPzp65ymXGFK0Bb1vZUpuc9g==}
     dependencies:
       '@aws-crypto/util': 1.2.2
-      '@aws-sdk/types': 3.6.1
+      '@aws-sdk/types': 3.413.0
       tslib: 1.14.1
     dev: false
 
@@ -763,7 +752,7 @@ packages:
     resolution: {integrity: sha512-VZY+mCY4Nmrs5WGfitmNqXzaE873fcIZDu54cbaDaaamsaTOP1DBImV9F4pICc3EHjQXujyE8jig+PFCaew9ig==}
     dependencies:
       '@aws-crypto/util': 2.0.2
-      '@aws-sdk/types': 3.186.0
+      '@aws-sdk/types': 3.413.0
       tslib: 1.14.1
     dev: false
 
@@ -803,7 +792,7 @@ packages:
   /@aws-crypto/util@1.2.2:
     resolution: {integrity: sha512-H8PjG5WJ4wz0UXAFXeJjWCW1vkvIJ3qUUD+rGRwJ2/hj+xT58Qle2MTql/2MGzkU+1JLAFuR6aJpLAjHwhmwwg==}
     dependencies:
-      '@aws-sdk/types': 3.6.1
+      '@aws-sdk/types': 3.413.0
       '@aws-sdk/util-utf8-browser': 3.259.0
       tslib: 1.14.1
     dev: false
@@ -811,8 +800,8 @@ packages:
   /@aws-crypto/util@2.0.2:
     resolution: {integrity: sha512-Lgu5v/0e/BcrZ5m/IWqzPUf3UYFTy/PpeED+uc9SWUR1iZQL8XXbGQg10UfllwwBryO3hFF5dizK+78aoXC1eA==}
     dependencies:
-      '@aws-sdk/types': 3.186.0
-      '@aws-sdk/util-utf8-browser': 3.186.0
+      '@aws-sdk/types': 3.413.0
+      '@aws-sdk/util-utf8-browser': 3.259.0
       tslib: 1.14.1
     dev: false
 
@@ -10605,7 +10594,7 @@ packages:
     resolution: {integrity: sha512-xq+q3SRMOxGivLhBNaUdC64hDTQwejJ+H0T/NB1XMtTVEwNTrfFF3gAxiyW0Bu/xWEGhjVKgUcMhCrUy2+uCWg==}
     dependencies:
       base64-js: 1.5.1
-      ieee754: 1.1.13
+      ieee754: 1.2.1
       isarray: 1.0.0
 
   /buffer@5.7.1:
@@ -11065,7 +11054,7 @@ packages:
     resolution: {integrity: sha512-rraC8NXWOEjhADbZe9QBNzLAN5Q3fsTPQtBV+fEVj6xKIgDgNiEVE6ZNfHpZOqfQ21YUzfVNUXLOEZquYvQPPg==}
     dependencies:
       leven: 2.1.0
-      minimist: 1.2.6
+      minimist: 1.2.8
     dev: true
 
   /commondir@1.0.1:
@@ -12873,9 +12862,10 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
+    dev: true
 
   /glob@7.1.6:
     resolution: {integrity: sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==}
@@ -13197,6 +13187,7 @@ packages:
 
   /ieee754@1.1.13:
     resolution: {integrity: sha512-4vf7I2LYV/HaWerSo3XmlMkp5eZ83i+/CDluXi/IGTs/O1sejBNhTtnxzmRZfvOUqj7lZjqHkeTvpgSFDlWZTg==}
+    dev: true
 
   /ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
@@ -14962,6 +14953,7 @@ packages:
     resolution: {integrity: sha512-tUpxzX0VAzJHjLu0xUfFv1gwVp9ba3IOuRAVH2EGuRW8a5emA2FlACLqiT/lDVtS1W+TGNwqz3sWaNyLgDJWuw==}
     dependencies:
       brace-expansion: 1.1.11
+    dev: true
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -15147,7 +15139,7 @@ packages:
       duplexify: 4.1.2
       help-me: 3.0.0
       inherits: 2.0.4
-      minimist: 1.2.6
+      minimist: 1.2.8
       mqtt-packet: 6.10.0
       pump: 3.0.0
       readable-stream: 3.6.2
@@ -16756,7 +16748,7 @@ packages:
       react: 18.2.0
       react-remove-scroll-bar: 2.3.4(@types/react@18.2.14)(react@18.2.0)
       react-style-singleton: 2.2.1(@types/react@18.2.14)(react@18.2.0)
-      tslib: 2.4.1
+      tslib: 2.6.2
       use-callback-ref: 1.3.0(@types/react@18.2.14)(react@18.2.0)
       use-sidecar: 1.1.2(@types/react@18.2.14)(react@18.2.0)
     dev: false
@@ -17122,7 +17114,7 @@ packages:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     hasBin: true
     dependencies:
-      glob: 7.1.4
+      glob: 7.2.3
 
   /rimraf@4.4.1:
     resolution: {integrity: sha512-Gk8NlF062+T9CqNGn6h4tls3k6T1+/nXdOcSZVikNVtlRdYpA7wRJJMoXmuvOnLW844rPjdQ7JgXCYM6PPC/og==}
@@ -17503,99 +17495,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /sst@2.25.6:
-    resolution: {integrity: sha512-IDpyTJfrcFcN1DMlZcqcJ5nTSnPgXQWpUhzFrzGn3bpTX3T+oOWkHs/OFCiN69KmLkHFZ2Eu5U0rt6/K9b5Dxw==}
-    hasBin: true
-    peerDependencies:
-      '@sls-next/lambda-at-edge': ^3.7.0
-    peerDependenciesMeta:
-      '@sls-next/lambda-at-edge':
-        optional: true
-    dependencies:
-      '@aws-cdk/aws-apigatewayv2-alpha': 2.95.1-alpha.0(aws-cdk-lib@2.84.0)(constructs@10.1.156)
-      '@aws-cdk/aws-apigatewayv2-authorizers-alpha': 2.95.1-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.95.1-alpha.0)(aws-cdk-lib@2.95.1)(constructs@10.2.69)
-      '@aws-cdk/aws-apigatewayv2-integrations-alpha': 2.95.1-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.95.1-alpha.0)(aws-cdk-lib@2.95.1)(constructs@10.2.69)
-      '@aws-cdk/cloud-assembly-schema': 2.95.1
-      '@aws-cdk/cloudformation-diff': 2.95.1
-      '@aws-cdk/cx-api': 2.95.1(@aws-cdk/cloud-assembly-schema@2.95.1)
-      '@aws-crypto/sha256-js': 5.1.0
-      '@aws-sdk/client-cloudformation': 3.414.0
-      '@aws-sdk/client-ecs': 3.414.0
-      '@aws-sdk/client-eventbridge': 3.414.0
-      '@aws-sdk/client-iam': 3.414.0
-      '@aws-sdk/client-iot': 3.414.0
-      '@aws-sdk/client-iot-data-plane': 3.414.0
-      '@aws-sdk/client-lambda': 3.414.0
-      '@aws-sdk/client-rds-data': 3.414.0
-      '@aws-sdk/client-s3': 3.417.0
-      '@aws-sdk/client-ssm': 3.414.0
-      '@aws-sdk/client-sts': 3.414.0
-      '@aws-sdk/config-resolver': 3.374.0
-      '@aws-sdk/credential-providers': 3.414.0
-      '@aws-sdk/middleware-retry': 3.374.0
-      '@aws-sdk/middleware-signing': 3.413.0
-      '@aws-sdk/signature-v4-crt': 3.415.0
-      '@aws-sdk/smithy-client': 3.374.0
-      '@babel/core': 7.22.20
-      '@babel/generator': 7.22.15
-      '@babel/plugin-syntax-typescript': 7.22.5(@babel/core@7.22.20)
-      '@smithy/signature-v4': 2.0.9
-      '@trpc/server': 9.16.0
-      adm-zip: 0.5.10
-      aws-cdk-lib: 2.95.1(constructs@10.2.69)
-      aws-iot-device-sdk: 2.2.12
-      aws-sdk: 2.1462.0
-      builtin-modules: 3.2.0
-      cdk-assets: 2.95.1
-      chalk: 5.3.0
-      chokidar: 3.5.3
-      ci-info: 3.8.0
-      colorette: 2.0.20
-      conf: 10.2.0
-      constructs: 10.2.69
-      cross-spawn: 7.0.3
-      dendriform-immer-patch-optimiser: 2.1.3(immer@9.0.21)
-      dotenv: 16.3.1
-      esbuild: 0.18.13
-      express: 4.18.2
-      fast-jwt: 3.3.0
-      get-port: 6.1.2
-      glob: 8.1.0
-      graphql: 16.8.1
-      graphql-yoga: 3.9.1(graphql@16.8.1)
-      immer: 9.0.21
-      ink: 4.4.1(@types/react@18.2.14)(react@18.2.0)
-      ink-spinner: 5.0.0(ink@4.4.1)(react@18.2.0)
-      kysely: 0.25.0
-      kysely-codegen: 0.10.1(kysely@0.25.0)
-      kysely-data-api: 0.2.1(@aws-sdk/client-rds-data@3.414.0)(kysely@0.25.0)
-      minimatch: 6.2.0
-      openid-client: 5.5.0
-      ora: 6.3.1
-      react: 18.2.0
-      remeda: 1.27.0
-      sst-aws-cdk: 2.91.0
-      tree-kill: 1.2.2
-      undici: 5.25.1
-      uuid: 9.0.1
-      ws: 8.14.2
-      yargs: 17.7.2
-      zod: 3.22.2
-    transitivePeerDependencies:
-      - '@types/react'
-      - aws-crt
-      - better-sqlite3
-      - bufferutil
-      - debug
-      - mysql2
-      - pg
-      - react-devtools-core
-      - supports-color
-      - utf-8-validate
-    dev: true
-
-  /sst@2.25.6(@types/react@18.2.14):
-    resolution: {integrity: sha512-IDpyTJfrcFcN1DMlZcqcJ5nTSnPgXQWpUhzFrzGn3bpTX3T+oOWkHs/OFCiN69KmLkHFZ2Eu5U0rt6/K9b5Dxw==}
+  /sst@2.26.2(@types/react@18.2.14):
+    resolution: {integrity: sha512-vQ+Odi4/q5LraJ0LmOw8XfRqtOIcbO/C0wiqHJ44Dabp6riGQMKOGuxKHAJcxP+v5YP2twLvIEc1JzxcArEscw==}
     hasBin: true
     peerDependencies:
       '@sls-next/lambda-at-edge': ^3.7.0
