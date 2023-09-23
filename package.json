@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "sst dev",
     "build": "sst build",
-    "deploy": "sst deploy",
+    "deploy": "sst deploy --stage prod",
+    "deploy:debug": "sst deploy --stage prod --verbose",
     "remove": "sst remove",
+    "remove:prod": "sst remove --stage prod",
     "console": "sst console",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ./**",
