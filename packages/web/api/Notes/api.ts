@@ -5,7 +5,7 @@ import { config } from '../awsConfig';
 
 Amplify.configure(config);
 
-export const createNote = async ({ note }: { note: CreateNoteBodyType }) => {
+export const createNote = async (note: CreateNoteBodyType) => {
   await API.post('notesApi', '/api/notes', {
     body: note,
   });

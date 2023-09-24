@@ -2,7 +2,7 @@ import { type CreateNoteBodyType } from '@google-keep-clone/core';
 import { useState } from 'react';
 import { type FocusWithinProps, useFocusWithin } from 'react-aria';
 
-import { createNote } from '@/api/Notes/api';
+import { useCreateNote } from '@/api/Notes/hooks';
 
 interface UseFocusWithinCreateNoteProps {
   values: CreateNoteBodyType;
@@ -13,6 +13,7 @@ interface UseFocusWithinCreateNoteProps {
 export const useFocusWithinCreateNote = ({ values, isFormTouched, resetForm }: UseFocusWithinCreateNoteProps) => {
   const { content, title } = values;
 
+  const createNoteMutation = useCreateNote();
   const [focused, setFocused] = useState(false);
   const onFocusWithin: FocusWithinProps['onFocusWithin'] = (e) => {
     setFocused(true);
@@ -20,7 +21,7 @@ export const useFocusWithinCreateNote = ({ values, isFormTouched, resetForm }: U
 
   const onBlurWithin: FocusWithinProps['onBlurWithin'] = (e) => {
     if (isFormTouched) {
-      void createNote({ note: { content, title } });
+      void createNoteMutation.mutate({ content, title });
     }
     setFocused(false);
     resetForm();
