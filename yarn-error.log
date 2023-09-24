@@ -1,0 +1,73 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Luis Capuyon\AppData\Local\node\corepack\yarn\1.22.19\bin\yarn.js install
+
+PATH: 
+  C:\Python311\Scripts\;C:\Python311\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files (x86)\Common Files\Acronis\VirtualFile\;C:\Program Files (x86)\Common Files\Acronis\VirtualFile64\;C:\Program Files (x86)\Common Files\Acronis\FileProtector\;C:\Program Files (x86)\Common Files\Acronis\FileProtector64\;C:\Program Files\Git\cmd;C:\Program Files\Calibre2\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI\;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\Luis Capuyon\AppData\Local\Microsoft\WindowsApps;C:\Users\Luis Capuyon\AppData\Local\Programs\Microsoft VS Code\bin;E:\Programming\;C:\Users\Luis Capuyon\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.16.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@google-keep-clone%2fcore: Not found
+      at params.callback [as _callback] (C:\Users\Luis Capuyon\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:66145:18)
+      at self.callback (C:\Users\Luis Capuyon\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (C:\Users\Luis Capuyon\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (C:\Users\Luis Capuyon\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1359:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "name": "google-keep-clone",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+      "dev": "sst dev",
+      "build": "sst build",
+      "deploy": "sst deploy --stage prod",
+      "deploy:debug": "sst deploy --stage prod --verbose",
+      "remove": "sst remove",
+      "remove:prod": "sst remove --stage prod",
+      "console": "sst console",
+      "typecheck": "tsc --noEmit",
+      "lint": "eslint ./**",
+      "lint:fix": "eslint --fix ./**"
+    },
+    "devDependencies": {
+      "@tsconfig/node16": "^16.1.0",
+      "aws-cdk-lib": "2.84.0",
+      "constructs": "10.1.156",
+      "eslint-config-custom": "workspace:*",
+      "lerna": "^7.1.1",
+      "nx": "16.5.0",
+      "nx-cloud": "latest",
+      "sst": "^2.26.2",
+      "typescript": "^5.1.6",
+      "vite": "^4.4.3",
+      "vite-plugin-dts": "^3.2.0"
+    },
+    "dependencies": {
+      "@google-keep-clone/core": "workspace:^"
+    },
+    "workspaces": [
+      "packages/**/*",
+      "./"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
