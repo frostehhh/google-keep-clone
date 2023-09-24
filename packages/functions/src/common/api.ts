@@ -11,11 +11,15 @@ export const handleSuccessfulResponse = ({ body }: { body: unknown }) => ( {
   headers: commonResponseHeaders,
 });
 
-export const handleResponseError = ({ error }: { error: unknown }) => ({
-  statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
-  body: {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-    error,
-  },
-  headers: commonResponseHeaders,
-});
+export const handleResponseError = ({ error }: { error: unknown }) => {
+  console.log('Error', error);
+
+  return {
+    statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
+    body: {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+      error,
+    },
+    headers: commonResponseHeaders,
+  };
+};
