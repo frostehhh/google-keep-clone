@@ -2,7 +2,8 @@
 import { GetNoteSchema } from '@google-keep-clone/core';
 import { type APIGatewayProxyEventV2WithIAMAuthorizer } from 'aws-lambda';
 import { StatusCodes } from 'http-status-codes';
-import { handleResponseError, handleSuccessfulResponse } from 'src/common';
+
+import { handleResponseError, handleSuccessfulResponse } from '@/common';
 
 import { NoteEntity } from './common';
 

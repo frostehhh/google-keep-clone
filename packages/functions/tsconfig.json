@@ -4,6 +4,11 @@
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "node",
-    "baseUrl": ".",
+    "baseUrl": "src",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+    }
   }
 }

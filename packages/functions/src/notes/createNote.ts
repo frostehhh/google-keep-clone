@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { APIGatewayProxyEventV2WithIAMAuthorizer, Handler } from 'aws-lambda';
-import { handleResponseError, handleSuccessfulResponse } from 'src/common';
+
+import { handleResponseError, handleSuccessfulResponse } from '@/common';
 
 import { NoteEntity } from './common';
 import { type NoteEntityType } from './types';

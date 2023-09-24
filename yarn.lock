@@ -4348,6 +4348,8 @@ __metadata:
     dynamodb-toolbox: ^0.8.5
     eslint-config-custom: "workspace:^"
     ts-toolbelt: ^9.6.0
+    vite: ^4.4.9
+    vite-plugin-dts: ^3.5.4
     vitest: ^0.33.0
     zod: ^3.21.4
   languageName: unknown
@@ -9773,7 +9775,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-sdk@npm:^2.1326.0, aws-sdk@npm:^2.1451.0":
+"aws-lambda@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "aws-lambda@npm:1.0.7"
+  dependencies:
+    aws-sdk: ^2.814.0
+    commander: ^3.0.2
+    js-yaml: ^3.14.1
+    watchpack: ^2.0.0-beta.10
+  bin:
+    lambda: bin/lambda
+  checksum: 11316e87b5c4fc36e6bd0495742a3c0ed13befc9527a7b251a58180d141d9afd68b684f37aeb3b53d117d3c2f96747eace31826b683543f1edddc03f392865fd
+  languageName: node
+  linkType: hard
+
+"aws-sdk@npm:^2.1326.0, aws-sdk@npm:^2.1451.0, aws-sdk@npm:^2.814.0":
   version: 2.1463.0
   resolution: "aws-sdk@npm:2.1463.0"
   dependencies:
@@ -10565,6 +10581,13 @@ __metadata:
   dependencies:
     delayed-stream: ~1.0.0
   checksum: 49fa4aeb4916567e33ea81d088f6584749fc90c7abec76fd516bf1c5aa5c79f3584b5ba3de6b86d26ddd64bae5329c4c7479343250cfe71c75bb366eae53bb7c
+  languageName: node
+  linkType: hard
+
+"commander@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "commander@npm:3.0.2"
+  checksum: 6d14ad030d1904428139487ed31febcb04c1604db2b8d9fae711f60ee6718828dc0e11602249e91c8a97b0e721e9c6d53edbc166bad3cde1596851d59a8f824d
   languageName: node
   linkType: hard
 
@@ -12667,11 +12690,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "functions@workspace:packages/functions"
   dependencies:
+    "@google-keep-clone/core": "workspace:^"
     "@types/aws-lambda": ^8.10.119
     "@types/node": ^20.4.1
+    aws-lambda: ^1.0.7
     dynamodb-toolbox: ^0.8.5
     eslint-config-custom: "workspace:^"
     http-status-codes: ^2.2.0
+    sst: ^2.26.5
     vitest: ^0.33.0
   languageName: unknown
   linkType: soft
@@ -14208,7 +14234,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:^3.10.0":
+"js-yaml@npm:^3.10.0, js-yaml@npm:^3.14.1":
   version: 3.14.1
   resolution: "js-yaml@npm:3.14.1"
   dependencies:
@@ -19462,7 +19488,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-dts@npm:^3.2.0":
+"vite-plugin-dts@npm:^3.2.0, vite-plugin-dts@npm:^3.5.4":
   version: 3.5.4
   resolution: "vite-plugin-dts@npm:3.5.4"
   dependencies:
@@ -19482,7 +19508,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.4.3":
+"vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.4.3, vite@npm:^4.4.9":
   version: 4.4.9
   resolution: "vite@npm:4.4.9"
   dependencies:
@@ -19607,7 +19633,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"watchpack@npm:2.4.0":
+"watchpack@npm:2.4.0, watchpack@npm:^2.0.0-beta.10":
   version: 2.4.0
   resolution: "watchpack@npm:2.4.0"
   dependencies:
@@ -19638,6 +19664,7 @@ __metadata:
   resolution: "web@workspace:packages/web"
   dependencies:
     "@aws-amplify/ui-react": ^5.3.0
+    "@google-keep-clone/core": "workspace:^"
     "@radix-ui/react-dialog": ^1.0.4
     "@radix-ui/react-slot": ^1.0.2
     "@react-aria/utils": ^3.20.0
