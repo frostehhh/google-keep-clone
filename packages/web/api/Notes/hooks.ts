@@ -6,6 +6,7 @@ import { deleteNote, getNotes, updateNote } from './api';
 export const useGetNotes = () => useQuery({
   queryKey: ['notes'],
   queryFn: getNotes,
+  refetchOnWindowFocus: false,
 });
 
 export const useUpdateNote = () => {
