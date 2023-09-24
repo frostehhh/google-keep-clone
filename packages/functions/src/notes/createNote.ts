@@ -15,10 +15,12 @@ export const createNote: Handler = async (event: APIGatewayProxyEventV2WithIAMAu
     // @ts-ignore
     const userId = event.requestContext.authorizer.iam.cognitoIdentity.identityId as string;
 
-    body = await NoteEntity.put({
+    body = await NoteEntity.update({
       userId,
       title: newNote.title,
       content: newNote.content,
+    }, {
+      returnValues: 'ALL_NEW',
     });
 
     return handleSuccessfulResponse({
