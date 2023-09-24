@@ -1,11 +1,11 @@
 'use client';
 
 import { type NoteType } from '@google-keep-clone/core';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import { useController, useForm } from 'react-hook-form';
 
-import { deleteNote, getNotes, updateNote } from '@/api/Notes';
+import { useDeleteNote, useGetNotes, useUpdateNote } from '@/api/Notes/hooks';
 import { Dialog } from '@/components/ui/Dialog';
 import TextArea from '@/components/ui/TextArea';
 import TextField from '@/components/ui/TextField';
@@ -13,19 +13,9 @@ import TextField from '@/components/ui/TextField';
 import Note from '../Note/Note';
 
 export default function NotesList() {
-  const { data, isLoading } = useQuery({
-    queryKey: ['notes'],
-    queryFn: getNotes,
-  });
-  const updateMutation = useMutation({
-    mutationFn: updateNote,
-    onSuccess: (data: NoteType) => {
-      queryClient.setQueryData(['notes', { noteId: data.noteId }], data);
-    },
-  });
-  const deleteMutation = useMutation({
-    mutationFn: deleteNote,
-  });
+  const { data, isLoading } = useGetNotes();
+  const updateNoteMutation = useUpdateNote();
+  const deleteNoteMutation = useDeleteNote();
   const queryClient = useQueryClient();
   const [isNoteDialogOpen, setIsNoteDialogOpen] = useState(false);
 
@@ -49,12 +39,12 @@ export default function NotesList() {
   };
 
   const handleDelete = (noteId: NoteType['noteId']) => {
-    deleteMutation.mutate(noteId);
+    deleteNoteMutation.mutate(noteId);
   };
 
   const handleDialogOpenChange = (open: boolean) => {
     if (!open && formState.isDirty) {
-      updateMutation.mutate(getValues());
+      updateNoteMutation.mutate(getValues());
       void queryClient.invalidateQueries({ queryKey: ['notes'] });
     }
 

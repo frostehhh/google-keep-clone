@@ -1,8 +1,7 @@
-// import { type NoteEntityType } from '@google-keep-clone/core';
 import { type CreateNoteBodyType, type NoteType } from '@google-keep-clone/core';
 import { Amplify, API } from 'aws-amplify';
 
-import { config } from './awsConfig';
+import { config } from '../awsConfig';
 
 Amplify.configure(config);
 

@@ -2,7 +2,7 @@ import { type CreateNoteBodyType } from '@google-keep-clone/core';
 import { useState } from 'react';
 import { type FocusWithinProps, useFocusWithin } from 'react-aria';
 
-import { createNote } from '@/api/Notes';
+import { createNote } from '@/api/Notes/api';
 
 interface UseFocusWithinCreateNoteProps {
   values: CreateNoteBodyType;
