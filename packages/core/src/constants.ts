@@ -1,0 +1,1 @@
+export const TEMPORARY_ID_PREFIX = 'TEMP_';

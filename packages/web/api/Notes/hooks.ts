@@ -1,4 +1,4 @@
-import { type NoteType } from '@google-keep-clone/core';
+import { type NoteType, TEMPORARY_ID_PREFIX } from '@google-keep-clone/core';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Auth } from 'aws-amplify';
 
@@ -21,7 +21,7 @@ export const useCreateNote = () => {
 
       // TODO: Improve typings
       const userInfo = await Auth.currentUserInfo() as { id: string };
-      const modifiedNewNote: NoteType = { ...newNote, noteId: `TEMP_${crypto.randomUUID()}`, userId: userInfo.id } as NoteType;
+      const modifiedNewNote: NoteType = { ...newNote, noteId: `${TEMPORARY_ID_PREFIX}${crypto.randomUUID()}`, userId: userInfo.id } as NoteType;
       queryClient.setQueryData<NoteType[] | undefined>(['notes'], (old) => old ? [...old, modifiedNewNote] : [modifiedNewNote]);
 
       return { previousNotes };
@@ -43,6 +43,26 @@ export const useUpdateNote = () => {
   });
 };
 
-export const useDeleteNote = () => useMutation({
-  mutationFn: deleteNote,
-});
+export const useDeleteNote = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (noteId: NoteType['noteId']) => {
+      if (noteId.startsWith(TEMPORARY_ID_PREFIX)) return Promise.resolve(null);
+      return deleteNote(noteId);
+    },
+    onMutate(deletedNoteId) {
+      const previousNotes: NoteType[] | undefined = queryClient.getQueryData(['notes']);
+
+      queryClient.setQueryData<NoteType[]>(['notes'], (oldNotes) => {
+        if (!oldNotes) return;
+
+        return oldNotes.filter(({ noteId }) => noteId !== deletedNoteId);
+      });
+
+      return { previousNotes };
+    },
+    onError(err, note, context) {
+      queryClient.setQueryData(['notes'], context?.previousNotes);
+    },
+  });
+};
