@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "vite build",
+    "build:debug": "vite build --debug --minify false",
     "build:watch": "pnpm nx watch --projects=@google-keep-clone/core -- pnpm run build",
     "test": "sst bind vitest",
     "typecheck": "tsc -noEmit",
