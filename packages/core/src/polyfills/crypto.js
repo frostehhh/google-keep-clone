@@ -1,11 +1,19 @@
 import crypto from 'crypto'; // should have webcrypto.getRandomValues defined
 
-if (typeof global.crypto !== 'object') {
-  global.crypto = crypto;
+let context;
+
+if (typeof global !== 'undefined') {
+  context = global;
+} else if (typeof window !== 'undefined') {
+  context = window;
 }
 
-if (typeof global.crypto.getRandomValues !== 'function') {
-  global.crypto.getRandomValues = getRandomValues;
+if (typeof context.crypto !== 'object') {
+  context.crypto = crypto;
+}
+
+if (typeof context.crypto.getRandomValues !== 'function') {
+  context.crypto.getRandomValues = getRandomValues;
 }
 
 function getRandomValues(array) {
