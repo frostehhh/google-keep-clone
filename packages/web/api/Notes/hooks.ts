@@ -26,8 +26,8 @@ export const useCreateNote = () => {
 
       return { previousNotes };
     },
-    onError(err, newTodo, context) {
-      queryClient.setQueryData(['todos'], context?.previousNotes);
+    onError(err, note, context) {
+      queryClient.setQueryData(['notes'], context?.previousNotes);
     },
   });
 };
