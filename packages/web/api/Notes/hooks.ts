@@ -21,10 +21,16 @@ export const useCreateNote = () => {
 
       // TODO: Improve typings
       const userInfo = await Auth.currentUserInfo() as { id: string };
-      const modifiedNewNote: NoteType = { ...newNote, noteId: `${TEMPORARY_ID_PREFIX}${crypto.randomUUID()}`, userId: userInfo.id } as NoteType;
-      queryClient.setQueryData<NoteType[] | undefined>(['notes'], (old) => old ? [...old, modifiedNewNote] : [modifiedNewNote]);
+      const tempNewNote: NoteType = { ...newNote, noteId: `${TEMPORARY_ID_PREFIX}${crypto.randomUUID()}`, userId: userInfo.id } as NoteType;
+      queryClient.setQueryData<NoteType[] | undefined>(['notes'], (old) => old ? [...old, tempNewNote] : [tempNewNote]);
 
-      return { previousNotes };
+      return { previousNotes, tempNewNote };
+    },
+    onSuccess(data, createdNoteInput, context) {
+      const createdNote = data.Attributes as unknown as NoteType;
+      queryClient.setQueryData<NoteType[] | undefined>(['notes'], (old) => {
+        return old ? old.map((note) => note.noteId === context?.tempNewNote.noteId ? createdNote : note) : [createdNote];
+      });
     },
     onError(err, note, context) {
       queryClient.setQueryData(['notes'], context?.previousNotes);

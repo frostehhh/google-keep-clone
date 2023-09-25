@@ -37,6 +37,7 @@
     "typescript": "^5.1.6"
   },
   "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.418.0",
     "@tanstack/eslint-plugin-query": "^4.34.1",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
