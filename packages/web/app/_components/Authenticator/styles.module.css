@@ -1,0 +1,3 @@
+.testauth :global button.amplify-button {
+  background-color: var(--amplify-internal-button-background-color);
+}
