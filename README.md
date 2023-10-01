@@ -1,6 +1,6 @@
 # Google Keep Clone
 
-A work-in-progress open source clone of the Google Keep app using TypeScript, React, Next.js, Serverless Stack(SST) and microservice architecture.
+A work-in-progress open source clone of the Google Keep app using TypeScript, React, Next.js, Serverless Stack(SST) and microservice architecture. Access a live deployment [here](https://d2md1bo57f8i0i.cloudfront.net).
 
 ## About this project
 
