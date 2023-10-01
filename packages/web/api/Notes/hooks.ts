@@ -10,11 +10,51 @@ export const useGetNotes = () => useQuery({
   refetchOnWindowFocus: false,
 });
 
-export const useCreateNote = () => {
+export const useUpdateNote = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
+    mutationFn: (data: NoteType) => {
+      if (data.noteId.startsWith(TEMPORARY_ID_PREFIX)) {
+        queryClient.setQueryData<NoteType[] | undefined>(['notes'], (old) => {
+          return old
+            ? old.map((note) => note.noteId === data.noteId ? data : note)
+            : old;
+        });
+        queryClient.setQueryData(['notes', { noteId: data.noteId }], () => ({ isUpdated: true, tempNoteId: data.noteId }));
+        return Promise.resolve(null);
+      }
+      return updateNote(data);
+    },
+    onMutate(updatedNote) {
+      if (!updatedNote) return;
+
+      const tempNoteUpdatedToDbNoteQueryKey = ['notes', { updatedNoteId: updatedNote.noteId }];
+      const noteToUpdate = queryClient.getQueryData<{ updatedNoteId: string, tempNoteId: string }>(tempNoteUpdatedToDbNoteQueryKey);
+      if (noteToUpdate) {
+        const { updatedNoteId, tempNoteId } = noteToUpdate;
+        queryClient.removeQueries(tempNoteUpdatedToDbNoteQueryKey);
+        queryClient.setQueryData<NoteType[] | undefined>(['notes'], (old) => old
+          ? old.map((note) => note.noteId === tempNoteId ? ({ ...updatedNote, noteId: updatedNoteId }) : note)
+          : old);
+      } else {
+        queryClient.setQueryData<NoteType[] | undefined>(['notes'], (old) => {
+          return old
+            ? old.map((note) => note.noteId === updatedNote.noteId ? updatedNote : note)
+            : old;
+        });
+      }
+    },
+  });
+};
+
+export const useCreateNote = () => {
+  const queryClient = useQueryClient();
+  const updateMutation = useUpdateNote();
+
+  return useMutation({
     mutationFn: createNote,
+    mutationKey: ['createNote'],
     onMutate: async (newNote) => {
       await queryClient.cancelQueries({ queryKey: ['notes'] });
       const previousNotes: NoteType | undefined = queryClient.getQueryData(['notes']);
@@ -28,23 +68,25 @@ export const useCreateNote = () => {
     },
     onSuccess(data, createdNoteInput, context) {
       const createdNote = data.Attributes as unknown as NoteType;
-      queryClient.setQueryData<NoteType[] | undefined>(['notes'], (old) => {
-        return old ? old.map((note) => note.noteId === context?.tempNewNote.noteId ? createdNote : note) : [createdNote];
-      });
+      const tempNoteQueryKey = ['notes', { noteId: context?.tempNewNote.noteId }];
+      const { isUpdated } = queryClient.getQueryData<{ isUpdated: boolean } | undefined>(tempNoteQueryKey) ?? {};
+
+      if (isUpdated) {
+        queryClient.removeQueries(tempNoteQueryKey);
+        const notes = queryClient.getQueryData<NoteType[]>(['notes']);
+        const updatedNote = notes?.find(({ noteId }) => noteId === context?.tempNewNote.noteId);
+        if (updatedNote) {
+          queryClient.setQueryData(['notes', { updatedNoteId: createdNote.noteId }], () => ({ updatedNoteId: createdNote.noteId, tempNoteId: context?.tempNewNote.noteId }));
+          updateMutation.mutate({ ...createdNote, ...updatedNote, noteId: createdNote.noteId });
+        }
+      } else {
+        queryClient.setQueryData<NoteType[] | undefined>(['notes'], (old) => {
+          return old ? old.map((note) => note.noteId === context?.tempNewNote.noteId ? createdNote : note) : [createdNote];
+        });
+      }
     },
     onError(err, note, context) {
       queryClient.setQueryData(['notes'], context?.previousNotes);
-    },
-  });
-};
-
-export const useUpdateNote = () => {
-  const queryClient = useQueryClient();
-
-  return useMutation({
-    mutationFn: updateNote,
-    onSuccess: (data: NoteType) => {
-      queryClient.setQueryData(['notes', { noteId: data.noteId }], data);
     },
   });
 };
